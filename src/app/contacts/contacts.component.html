@@ -1,0 +1,58 @@
+
+        <button type="reset" (click)="AddContact()" class="btn btn-dark button">Add Contact</button>
+<div class="container">
+  <input type="text" name="search" id="search" [(ngModel)]="search" placeholder="search">
+</div>
+  <table class="table">
+    <thead class="thead-dark">
+        <th>First Name</th>
+        <th>last Name</th>
+        <th>Contact Owner</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Company</th>
+        <th>jobTitle</th>
+        <th>Actions</th>
+        <th></th>
+   
+    </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts | filter:search">
+      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.lastName }}</td>
+      <td>{{ contact.contactOwner }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.phone }}</td>
+      <td>{{ contact.company }}</td>
+      <td>{{ contact.jobTitle }}</td>   
+      <td>
+        <button type="button" class="btn btn-primary" (click)="editContact(contact)"><i class="fa-solid fa-pen-to-square"></i></button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deleteActivity(contact.id)"><i class="fa-solid fa-trash"></i></button>
+        
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Activities</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts | filter: search">
+      <td>{{ contact.firstName }} {{ contact.lastName }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.phone }}</td>
+      <td>{{ getActivitiesForParticipant(contact.firstName).join(', ') }}</td>
+      
+    </tr>
+  </tbody>
+</table>

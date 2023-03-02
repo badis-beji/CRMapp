@@ -1,0 +1,45 @@
+<div class="segment">
+    <h2>Add A Contact</h2>
+  </div>
+  <form  [formGroup]="contactForm" (ngSubmit)="onSubmit()" >
+     <div>
+      <div class="form-group">
+          <label>First Name:</label>
+        <input type="text" formControlName="firstName">
+      </div>
+      <div class="form-group">
+          <label>Last Name:</label>
+        <input type="text" formControlName="lastName">
+      </div>
+      <div class="form-group">
+          <label>Email:</label>
+        <input type="email" formControlName="email">
+      </div>
+      <div class="form-group">
+          <label>Phone:</label>
+        <input type="tel" formControlName="phone">
+      </div>
+      <div class="form-group">
+        <label for="participants">Contact Owner:</label>
+        <select class="form-select" id="contactOwner" formControlName="contactOwner">
+          <option *ngFor="let participant of contacts" [value]="participant.firstName">
+            {{ participant.firstName }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label>Job Title:</label>
+        <select class="form-select" type="text" formControlName="jobTitle">
+          <option *ngFor="let title of JobTitles" [value]="title">{{title}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label>Company:</label>
+        <input type="text" formControlName="company">
+      </div>
+     
+      <button type="button" class="btn btn-light" (click)="onSubmit()">Submit</button>
+  
+  </div> 
+  </form>
+  

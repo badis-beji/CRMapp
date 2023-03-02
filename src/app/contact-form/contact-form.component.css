@@ -1,0 +1,33 @@
+.form-card {
+    box-sizing: border-box;
+    width: 60%;
+    margin: 20px auto;
+    padding: 10px auto;
+    box-shadow: lightgray 4px 4px 20px;
+   
+  }
+  
+  .form-group {
+    margin: 10px auto;
+    padding-left: 10px;
+    width: 25rem;
+    display: inline-block;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  input, textarea {
+    width: 50%;
+  }
+  
+  .action-buttons {
+    width: 100%;
+  }
+  
+  button {
+    display: block;
+    margin: 20px auto;
+  }
+  .form-select {
+    width: 48%;
+}

@@ -1,0 +1,28 @@
+<div class="segment"><h2>Update Activity</h2></div>
+<form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="Date">Date</label>
+    <input type="date" id="Date" formControlName="date" />
+  </div>
+  <div>
+    <label for="activityType">Activity Type</label>
+    <input type="text" id="activityType" formControlName="activityType" />
+  </div>
+  <div>
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" formControlName="subject" />
+  </div>
+  <div>
+    <label for="participants">Participants</label>
+    <input type="text" id="participants" formControlName="participants" />
+  </div>
+  <div>
+    <label for="note">Note</label>
+    <input type="text" id="note" formControlName="note" />
+  </div>
+  <div>
+    <label for="documents">Documents</label>
+    <input type="text" id="documents" formControlName="documents" />
+  </div>
+  <button type="submit">Update</button>
+</form>

@@ -1,0 +1,112 @@
+{
+  "activityData": [
+    {
+      "id": 2,
+      "date": "2022-01-01",
+      "activityType": "Meeting",
+      "participants": [
+        "John Doe",
+        "Jane Doe",
+        "Jim Smith"
+      ],
+      "subject": "Project Review",
+      "note": "Discussing progress on current project",
+      "documents": [
+        "project_review.ppt"
+      ]
+    },
+    {
+      "id": 4,
+      "date": "2023-03-15",
+      "activityType": "Meeting",
+      "participants": [
+        "Mariem Ben Amor",
+        "Sami Bouzidi",
+        "Fatma Cherif"
+      ],
+      "subject": "Project Review",
+      "note": "Discuss progress and make decisions on next steps",
+      "documents": [
+        "project_report.pdf",
+        "presentation.pptx"
+      ]
+    }
+  ],
+  "contactsData": [
+    {
+      "firstName": "Ahmed",
+      "lastName": "Doe",
+      "email": "johndoe@example.com",
+      "phone": "+1234567890",
+      "contactOwner": "test",
+      "jobTitle": "Software Engineer",
+      "company": "Example Inc.",
+      "address": "123 Main St",
+      "country": "USA",
+      "zipCode": 94105,
+      "city": "San Francisco",
+      "state": "California",
+      "id": 1
+    },
+    {
+      "firstName": "Badis",
+      "lastName": "Bejiiiii",
+      "email": "badis@example.com",
+      "phone": "+21671234567",
+      "contactOwner": "Ahmed",
+      "jobTitle": "Human Ressources",
+      "company": "ADS",
+      "address": "1 Rue de la Liberté",
+      "country": "Tunisia",
+      "zipCode": 1001,
+      "city": "Tunis",
+      "state": "Tunis",
+      "id": 2
+    },
+    {
+      "firstName": "Ahmed",
+      "lastName": "Khalfallah",
+      "email": "khalfallah@example.com",
+      "phone": "+21623456789",
+      "contactOwner": "test",
+      "jobTitle": "UI/UX Designer",
+      "company": "Tunisian Tech Company",
+      "address": "14 Rue des Jardins",
+      "country": "Tunisia",
+      "zipCode": 3000,
+      "city": "Sfax",
+      "state": "Sfax",
+      "id": 3
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test@test.com",
+      "phone": "52144444",
+      "contactOwner": "Badis",
+      "jobTitle": "Business Analyst",
+      "company": "aaa",
+      "address": "aa",
+      "country": "Nepal",
+      "zipCode": "1400",
+      "city": "aa",
+      "state": "kef",
+      "id": 4
+    },
+    {
+      "firstName": "micheal",
+      "lastName": "jackson",
+      "email": "micheal@test.com",
+      "phone": "+21652588974",
+      "contactOwner": "Badis",
+      "jobTitle": "Software Engineer",
+      "company": "aaa",
+      "address": "aa",
+      "country": "San Marino",
+      "zipCode": "5241",
+      "city": "aa",
+      "state": "tunis",
+      "id": 5
+    }
+  ]
+}

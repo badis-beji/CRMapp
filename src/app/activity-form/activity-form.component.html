@@ -1,0 +1,45 @@
+<div class="segment">
+  <h2>Add An Activity</h2>
+</div>
+<form [formGroup]="activityForm">
+ <div>   
+<div class="form-group">
+    <label for="date">Start date:</label>
+
+    <input type="date" id="date" name="trip-start" value="2023-02-14"  formControlName="date">
+</div>
+<div class="form-group">
+    <label for="activityType">Activity Type</label>
+        <select class="form-select" id="activityType" formControlName="activityType">
+          <option *ngFor="let activity of  Activitytypes" [value]="activity">{{ activity }}</option>
+        </select>
+</div>
+<div class="form-group">
+    <label for="subject">Subject</label>
+    <input type="text" name="subject" id="suject" placeholder="Subject" formControlName="subject">
+</div>
+
+
+
+  <<div class="form-group">
+    <label for="participants">Participants:</label>
+    <select class="form-select" id="participants" formControlName="participants" multiple>
+      <option *ngFor="let participant of contacts" [value]="participant.firstName">
+        {{ participant.firstName }}
+      </option>
+    </select>
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="note">Notes:</label>
+    <input type="text" id="note" placeholder="Notes" formControlName="note">
+  </div>
+  <div class="form-group">
+    <label for="documents">Documents:</label>
+    <input class="form-select" type="file" id="documents" formControlName="documents" >
+  </div>
+  <button type="button" class="btn btn-light" (click)="onSubmit()">Submit</button>
+
+</div>
+</form>

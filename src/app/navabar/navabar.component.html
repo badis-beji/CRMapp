@@ -1,0 +1,8 @@
+<div class="dropdown">
+    <button (dblclick)="navigate()" class="dropbtn">CRM</button>
+    <div class="dropdown-content">
+      <a [routerLink]="['/contacts']" routerLinkActive="router-link-active" >Contacts</a>
+      <a [routerLink]="['/activity']" routerLinkActive="router-link-active" >Activity</a>
+
+    </div>
+  </div>
