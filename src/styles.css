@@ -15,7 +15,7 @@ text-shadow: 1px 1px 1px #fff;
 form {
 padding: 16px;
 width: 40%;
-height: 35rem;
+height: 50rem;
 overflow: scroll;
 margin: 0 auto;
 box-shadow: 
@@ -102,3 +102,6 @@ justify-content: flex-start;
 margin: 0;
 flex: 1;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,34 +1,70 @@
-<button type="reset" (click)="addActivity()" class="btn btn-dark" style="margin-left: 40em;">Add Activity</button>
+<button
+  type="reset"
+  (click)="addActivity()"
+  class="btn btn-dark"
+  style="margin-left: 40em"
+>
+  Add Activity
+</button>
 <div class="container">
-  <input type="text" name="search" id="search" [(ngModel)]="search" placeholder="search">
+  <input
+    type="text"
+    name="search"
+    id="search"
+    [(ngModel)]="search"
+    placeholder="search"
+  />
 </div>
-<table class="table">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Activity Type</th>
-        <th>Participants</th>
-        <th>Subject</th>
-        <th>Note</th>
-        <th>Documents</th>
-        <th>Actions</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let activity of activities | filter:search; let i = index">
-        <td>{{activity.date | date}}</td>
-        <td>{{activity.activityType}}</td>
-        <td>{{activity.participants.join(', ')}}</td>
-        <td>{{activity.subject}}</td>
-        <td>{{activity.note}}</td>
-        <td>{{activity.documents}}</td>
-        <td>
-          <button type="button" class="btn btn-primary" (click)="editActivity(activity)"><i class="fa-solid fa-pen-to-square"></i></button>
-        </td>
-        <td>
-          <button type="button" class="btn btn-danger" (click)="deleteActivity(activity.id)"><i class="fa-solid fa-trash"></i></button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Activity Type</th>
+      <th>Participants</th>
+      <th>Subject</th>
+      <th>Note</th>
+      <th>Documents</th>
+      <th>Actions</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let activity of activities
+          | filter : search
+          | paginate : { itemsPerPage: 5, currentPage: p }
+      "
+    >
+      <td>{{ activity.date | date }}</td>
+      <td>{{ activity.type }}</td>
+      <td>
+        <span *ngFor="let p of activity.participants">
+          {{ p.firstName + " " }}
+        </span>
+      </td>
+      <td>{{ activity.subject }}</td>
+      <td>{{ activity.note }}</td>
+      <td>{{ activity.document }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="editActivity(activity)"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteActivity(activity.id)"
+        >
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>

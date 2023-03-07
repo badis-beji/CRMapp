@@ -6,11 +6,11 @@
 <div class="form-group">
     <label for="date">Start date:</label>
 
-    <input type="date" id="date" name="trip-start" value="2023-02-14"  formControlName="date">
+    <input type="date" id="date" name="trip-start" value="2023-02-14"  formControlName="Date">
 </div>
 <div class="form-group">
-    <label for="activityType">Activity Type</label>
-        <select class="form-select" id="activityType" formControlName="activityType">
+    <label for="type">Activity Type</label>
+        <select class="form-select" id="type" formControlName="type">
           <option *ngFor="let activity of  Activitytypes" [value]="activity">{{ activity }}</option>
         </select>
 </div>
@@ -21,10 +21,10 @@
 
 
 
-  <<div class="form-group">
+  <div class="form-group">
     <label for="participants">Participants:</label>
     <select class="form-select" id="participants" formControlName="participants" multiple>
-      <option *ngFor="let participant of contacts" [value]="participant.firstName">
+      <option *ngFor="let participant of contacts" [value]="participant.id">
         {{ participant.firstName }}
       </option>
     </select>
@@ -36,8 +36,8 @@
     <input type="text" id="note" placeholder="Notes" formControlName="note">
   </div>
   <div class="form-group">
-    <label for="documents">Documents:</label>
-    <input class="form-select" type="file" id="documents" formControlName="documents" >
+    <label for="document">Documents:</label>
+    <input class="form-select" type="file" id="document" formControlName="document" >
   </div>
   <button type="button" class="btn btn-light" (click)="onSubmit()">Submit</button>
 

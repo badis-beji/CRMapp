@@ -26,7 +26,7 @@ export class ContactUpdateComponent {
     this.fetchContacts()
   }
   fetchContacts(): void {
-    this.http.get<Contact[]>('http://localhost:3000/contactsData')
+    this.http.get<Contact[]>('http://localhost:8080/contact')
       .subscribe((data) => {
         this.contacts = data;
       });
@@ -34,7 +34,7 @@ export class ContactUpdateComponent {
   ngOnInit(): void {
     this.contactId = +this.route.snapshot.paramMap.get('id')!;
 
-     this.http.get<any[]>('http://localhost:3000/contactsData').subscribe(data => {
+     this.http.get<any[]>('http://localhost:8080/contact').subscribe(data => {
       this.contactData = data;
     });
         this.contactForm = this.formBuilder.group({
@@ -53,7 +53,7 @@ export class ContactUpdateComponent {
       
     });
     this.http
-      .get<Contact>(`http://localhost:3000/contactsData/${this.contactId}`)
+      .get<Contact>(`http://localhost:8080/contact/${this.contactId}`)
       .subscribe((data) => {
         this.contactForm.patchValue(data);
       });
@@ -62,7 +62,7 @@ export class ContactUpdateComponent {
   onSubmit(): void {
     const updatedContact: Contact = this.contactForm.value;
     this.http
-      .put(`http://localhost:3000/contactsData/${this.contactId}`, updatedContact)
+      .put(`http://localhost:8080/contact/${this.contactId}`, updatedContact)
       .subscribe(
         () => {
           this.router.navigateByUrl('contacts');

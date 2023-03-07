@@ -37,3 +37,6 @@
   .form-select {
     width: 48%;
 }
+form{
+  height:fit-content;
+}

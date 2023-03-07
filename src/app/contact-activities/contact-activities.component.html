@@ -1,0 +1,29 @@
+<div class="segment">
+  <h2>Activities of {{ contact.firstName }}</h2>
+</div>
+<table class="table table-bordered table-hover">
+  <thead class="table-info">
+    <tr>
+      <th>Date</th>
+      <th>Activity Type</th>
+      <th>Participants</th>
+      <th>Subject</th>
+      <th>Note</th>
+      <th>Documents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let activity of activities | filter : search">
+      <td>{{ activity.date | date }}</td>
+      <td>{{ activity.type }}</td>
+      <td>
+        <span *ngFor="let p of activity.participants">
+          {{ p.firstName + " " }}
+        </span>
+      </td>
+      <td>{{ activity.subject }}</td>
+      <td>{{ activity.note }}</td>
+      <td>{{ activity.document }}</td>
+    </tr>
+  </tbody>
+</table>

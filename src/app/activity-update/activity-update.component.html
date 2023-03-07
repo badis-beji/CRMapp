@@ -1,20 +1,33 @@
 <div class="segment"><h2>Update Activity</h2></div>
 <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="Date">Date</label>
-    <input type="date" id="Date" formControlName="date" />
+    <label for="date">Date</label>
+    <input type="date" id="date" formControlName="date" />
   </div>
-  <div>
-    <label for="activityType">Activity Type</label>
-    <input type="text" id="activityType" formControlName="activityType" />
+  <div class="form-group">
+    <label for="type">Activity Type</label>
+    <select class="form-select" id="type" formControlName="type">
+      <option *ngFor="let activity of Activitytypes" [value]="activity">
+        {{ activity }}
+      </option>
+    </select>
   </div>
   <div>
     <label for="subject">Subject</label>
     <input type="text" id="subject" formControlName="subject" />
   </div>
-  <div>
-    <label for="participants">Participants</label>
-    <input type="text" id="participants" formControlName="participants" />
+  <div class="form-group">
+    <label for="participants">Participants:</label>
+    <select
+      class="form-select"
+      id="participants"
+      formControlName="participants"
+      multiple
+    >
+      <option *ngFor="let participant of contacts" [value]="participant.id">
+        {{ participant.firstName }}
+      </option>
+    </select>
   </div>
   <div>
     <label for="note">Note</label>

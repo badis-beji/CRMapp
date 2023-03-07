@@ -13,7 +13,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {  HttpClientModule } from '@angular/common/http';
 import { ActivityUpdateComponent } from './activity-update/activity-update.component';
 import { ContactUpdateComponent } from './contact-update/contact-update.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { ContactActivitiesComponent } from './contact-activities/contact-activities.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,8 @@ import { ContactUpdateComponent } from './contact-update/contact-update.componen
     ActivityComponent,
     ActivityFormComponent,
     ActivityUpdateComponent,
-    ContactUpdateComponent
+    ContactUpdateComponent,
+    ContactActivitiesComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,9 @@ import { ContactUpdateComponent } from './contact-update/contact-update.componen
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    NgxPaginationModule,
+    Ng2OrderModule
   
   ],
   providers: [],

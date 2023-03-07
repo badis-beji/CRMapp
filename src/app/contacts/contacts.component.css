@@ -6,3 +6,8 @@
     padding: 70px auto;
     text-align: center;
 }
+pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

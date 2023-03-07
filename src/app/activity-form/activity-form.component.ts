@@ -24,24 +24,34 @@ constructor(private formbuilder : FormBuilder, private router : Router, private 
 }
 ngOnInit(): void {
 this.activityForm = this.formbuilder.group ({
-  date: ["15/02/2023"],
-    activityType: [null],
+  Date: ["15/02/2023"],
+    type: [null],
     subject: [null],
     participants: [],
     note: [null],
-    documents: ["file.pdf"]
+    document: ["file.pdf"]
 })
 }
 fetchContacts(): void {
-  this.http.get<Contact[]>('http://localhost:3000/contactsData')
+  this.http.get<Contact[]>('http://localhost:8080/contact')
     .subscribe((data) => {
       this.contacts = data;
     });
 }
 onSubmit(): void {
-  console.log(this.activityForm.value);
-  const newActivity: Activity = this.activityForm.value;
-  this.http.post<Activity>('http://localhost:3000/activityData', newActivity).subscribe(() => {
+  const value = this.activityForm.value;
+  let newActivity: Activity = {
+    id: value['id'],
+    Date: value['Date'],
+    type: value["type"],
+    
+    subject: value["subject"],
+    note: value["note"],
+    document: value["document"]
+  };
+  newActivity.participants = value.participants.map((p: number[]) => { return  {id: p}});
+  console.log(newActivity);
+  this.http.post<Activity>('http://localhost:8080/activities', newActivity).subscribe(() => {
       this.router.navigateByUrl('activity');
     }, error => {
       console.error('Failed to save Activity:', error);

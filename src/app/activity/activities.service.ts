@@ -1,12 +1,4 @@
-// import { Injectable } from '@angular/core';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class ActivitiesServiceService {
-
-//   constructor() { }
-// }
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -16,7 +8,7 @@ import { Activity } from './activity.interface';
   providedIn: 'root'
 })
 export class ActivityService {
-  private activityUrl = 'http://localhost:3000/activityData?_limit=100';
+  private activityUrl = 'http://localhost:8080/activities';
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +17,12 @@ export class ActivityService {
   }
 
   deleteActivity(id: number): Observable<{}> {
-    const url = `http://localhost:3000/activityData/${id}`;
+    const url = `http://localhost:8080/activities/${id}`;
     return this.http.delete(url);
+  }
+  
+  getContactActivities(id : number) : Observable<Activity[]>{
+    // return this.http.get<Activity[]>(`http://localhost:8080/by-contact/${id}`)
+    return this.http.get<Activity[]>(`http://localhost:8080/by-contact?contactId=${id}`);
   }
 }

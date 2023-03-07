@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivityService } from './activities.service';
 import { Activity } from './activity.interface';
@@ -10,38 +10,12 @@ import { Activity } from './activity.interface';
   templateUrl: './activity.component.html',
   styleUrls: ['./activity.component.css']
 })
-// export class ActivityComponent {
-//   activities: Activity[] = [];
-//   search : any;
-//   constructor(private router : Router, private http : HttpClient) {
-//     this.fetchActivities()
-//   }
-//   fetchActivities(): void {
-//     this.http.get<Activity[]>('http://localhost:3000/activityData?_limit=100')
-//       .subscribe((data) => {
-//         this.activities = data;
-//       });
-//   }
-//   addActivity(){
-//      this.router.navigateByUrl("activity-form")
-//    }
 
-//   editActivity( activity: Activity) {
-//     this.router.navigate(['/update', activity.id]);
-//   }
-
-//   deleteActivity(id: number) {
-//     this.http.delete(`http://localhost:3000/activityData/${id}`).subscribe(() => {
-//       this.activities = this.activities.filter(activity => activity.id !== id);
-//     }, error => {
-//       console.error('Failed to delete Activity:', error);
-//     });
-//   }
-  
-// }
 export class ActivityComponent implements OnInit {
+[x: string]: any;
   activities: Activity[] = [];
   search: any;
+  p :number = 1;
 
   constructor(private router: Router, private activityService: ActivityService) { }
 
@@ -71,6 +45,7 @@ export class ActivityComponent implements OnInit {
       console.error('Failed to delete Activity:', error);
     });
   }
+  
 }
 
 

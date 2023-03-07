@@ -1,9 +1,11 @@
+import { Contact } from "../contacts/contacts.interface";
+
 export interface Activity {
     id:number;
-    date: Date;
-    activityType: string;
-    participants: string[];
+    Date: Date;
+    type: string;
+    participants?: Contact[];
     subject: string;
     note: string;
-    documents: string[];
+    document: string[];
   }

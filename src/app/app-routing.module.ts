@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'activity-form', component: ActivityFormComponent},
   {path: 'update/:id', component: ActivityUpdateComponent},
   {path: 'updatec/:id', component:ContactUpdateComponent}
+ 
 ];
 
 @NgModule({
