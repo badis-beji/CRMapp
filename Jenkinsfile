@@ -24,7 +24,7 @@ pipeline {
         DOCKER_USER = 'badisbeji'
       }
       steps {
-        sh 'docker login -u ${DOCKER_USER} -p ${DOCKERHUB_PASS}'
+        sh 'docker login -u ${DOCKER_USER} -p $DOCKERHUB_PASS'
       }
     }
 
