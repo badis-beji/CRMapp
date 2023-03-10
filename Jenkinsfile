@@ -7,5 +7,33 @@ pipeline {
       }
     }
 
+    stage('logging something') {
+      steps {
+        sh 'ls -la'
+      }
+    }
+
+    stage('building a docker image') {
+      steps {
+        sh 'docker build --tag badisbeji/crm_angular_app .'
+      }
+    }
+
+    stage('connecting to DockerHub') {
+      environment {
+        DOCKER_USER = 'badisbeji'
+        DOCKER_PASS = 'dckr_pat_ApB5PkEOXUbInnU7PfRqkq-knfU'
+      }
+      steps {
+        sh 'docker login - $DOCKER_USER -p $DOCKER_PASS'
+      }
+    }
+
+    stage('pushing into DockerHub') {
+      steps {
+        sh 'docker push badisbeji/crm_angular_app'
+      }
+    }
+
   }
 }
