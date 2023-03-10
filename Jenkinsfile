@@ -22,9 +22,10 @@ pipeline {
     stage('connecting to DockerHub') {
       environment {
         DOCKER_USER = 'badisbeji'
+        DOCKER_PASS = 'credentials(\'DOCKERHUB_PASS\')'
       }
       steps {
-        sh 'docker login -u ${DOCKER_USER} -p $DOCKERHUB_PASS'
+        sh 'docker login -u ${DOCKER_USER} -p $DOCKER_PASS'
       }
     }
 
