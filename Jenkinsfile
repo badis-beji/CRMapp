@@ -25,7 +25,7 @@ pipeline {
         DOCKER_PASSWORD = '$DOCKER_PASS'
       }
       steps {
-        sh 'docker login -u ${DOCKER_USER} -p $DOCKER_PASSWORD'
+        sh 'docker login -u ${DOCKER_USER} --password-stdin'
       }
     }
 
